@@ -1,0 +1,92 @@
+<mat-card>
+  <mat-list>
+    <mat-list-item><span>Informacion de miembro</span></mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Nombre</mat-label>
+      <input
+        [(ngModel)]="Miembro.Nombre"
+        [readonly]="isReadOnly"
+        matInput placeholder="Nombres">
+    </mat-form-field>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Apellidos</mat-label>
+      <input [(ngModel)]="Miembro.Apellido"
+             [readonly]="isReadOnly"
+             matInput placeholder="Apellidos">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Correo</mat-label>
+      <input [(ngModel)]="Miembro.Email"
+             [readonly]="isReadOnly"
+             matInput value="miembro@gmail.com">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Genero</mat-label>
+      <mat-select [(value)]="Miembro.Genero">
+        <mat-option value="M">M</mat-option>
+        <mat-option value="F">F</mat-option>
+      </mat-select>
+<!--      <input matInput [(ngModel)]="Miembro.Genero" value="M">-->
+    </mat-form-field>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Estado civil</mat-label>
+      <mat-select [(value)]="Miembro.EstadoCivil">
+        <mat-option value="Casado">Casado</mat-option>
+        <mat-option value="Soltero">Soltero</mat-option>
+        <mat-option value="Viudo">Viudo</mat-option>
+        <mat-option value="Divorciado">Divorciado</mat-option>
+      </mat-select>
+
+<!--      <input matInput [(ngModel)]="Miembro.EstadoCivil" value="Soltero">-->
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Fecha nacimiento</mat-label>
+      <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaNacimiento" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+<!--      <mat-label>Fecha nacimiento</mat-label>-->
+<!--      <input matInput [(ngModel)]="Miembro.FechaNacimiento" placeholder="">-->
+    </mat-form-field>
+<!--    <br>-->
+    <mat-form-field class="form-custom-field" appearance="standard" >
+      <mat-label>Fecha bautismo</mat-label>
+      <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaBautismo" matInput [matDatepicker]="picker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+<!--      <mat-label>Fecha bautismo</mat-label>-->
+<!--      <input matInput [(ngModel)]="Miembro.FechaBautismo" placeholder="Casado, soltero, etc">-->
+    </mat-form-field>
+
+    <br>
+    <br>
+    <mat-list-item>
+          <span>
+            Contacto
+          </span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-form-field class="form-custom-field-outlined" appearance="outline" >
+      <mat-label>Direccion</mat-label>
+      <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Direccion">
+    </mat-form-field>
+    <br>
+    <mat-form-field  class="form-custom-field-outlined" appearance="outline">
+      <mat-label>Telefono 1</mat-label>
+      <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Telefono1">
+    </mat-form-field>
+    <mat-form-field  class="form-custom-field-outlined" appearance="outline" >
+      <mat-label>Telefono 2</mat-label>
+      <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Telefono2">
+    </mat-form-field>
+    <br>
+    <!--      <button mat-raised-button color="warn">Limpiar datos</button>-->
+    <!--      <button mat-raised-button color="primary">Guardar datos</button>-->
+
+  </mat-list>
+</mat-card>

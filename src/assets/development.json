@@ -1,0 +1,8 @@
+{
+  "debugging": true,
+
+  "API_ENDPOINTS": {
+    "miembros": "https://localhost:49153/api/Miembros"
+
+  }
+}

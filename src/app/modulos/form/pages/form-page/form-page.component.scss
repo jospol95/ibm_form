@@ -1,0 +1,44 @@
+
+#bienvenida{
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+}
+h1.main-title{
+  margin: 0;
+  padding: 20px;
+}
+p{
+  padding: 0;
+  margin: 0;
+}
+.card-container{
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: left;
+  //height: 100%;
+}
+
+span{
+  font-size: 14px ;
+  color: #47081F;
+  font-weight: 700;
+}
+
+.button-form-row{
+  margin-top: 10px;
+}
+
+.button-form:first-of-type{
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px)  {
+  .card-container{
+    max-width: 95%;
+  }
+  #bienvenida{
+    height: 100%;
+  }
+}
