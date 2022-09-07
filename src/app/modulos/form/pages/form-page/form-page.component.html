@@ -7,10 +7,12 @@
   <div *ngIf="!IsSubmitted">
     <h1 class="mat-card-title main-title">Actualización de datos</h1>
     <p>Ingresa tu información</p>
-
+    <span>Un (*) significa que la informacion es requerida</span>
     <div class="card-container">
 
-      <app-miembros-form [(Miembro)]="Model">
+      <app-miembros-form
+        (formFinishedEvent)="confirmModal.fire()"
+        [(miembroCommand)]="Model">
 
       </app-miembros-form>
 <!--      <div fxLayout="row" class="button-form-row" fxLayoutAlign="end end">-->

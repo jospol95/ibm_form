@@ -1,0 +1,35 @@
+<div class="div-card">
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Ministerio al que asiste</mat-label>
+    <mat-select [(value)]="miembro.MinisterioMiembroId">
+      <mat-option value=1>La Red</mat-option>
+      <mat-option value=2>Preju</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Ministerio en el que sirve</mat-label>
+    <mat-select [(value)]="miembro.MinisterioSirveId">
+      <mat-option value=1>Audiovisual</mat-option>
+      <mat-option value=2>Estrategia</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Fecha bautismo</mat-label>
+    <input [readonly]="isReadOnly" [(ngModel)]="miembro.FechaBautismo" matInput [matDatepicker]="pickerBautismo">
+    <mat-datepicker-toggle matSuffix [for]="pickerBautismo"></mat-datepicker-toggle>
+    <mat-datepicker #pickerBautismo></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Fecha conversion</mat-label>
+    <input [readonly]="isReadOnly" [(ngModel)]="miembro.FechaConversion" matInput [matDatepicker]="pickerConversion">
+    <mat-datepicker-toggle matSuffix [for]="pickerConversion"></mat-datepicker-toggle>
+    <mat-datepicker #pickerConversion></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Fecha de primera visita</mat-label>
+    <input [readonly]="isReadOnly" [(ngModel)]="miembro.FechaPrimeraVezCongregado" matInput [matDatepicker]="pickerVisita">
+    <!--          <mat-hint>MM/DD/YYYY</mat-hint>-->
+    <mat-datepicker-toggle matSuffix [for]="pickerVisita"></mat-datepicker-toggle>
+    <mat-datepicker #pickerVisita></mat-datepicker>
+  </mat-form-field>
+</div>

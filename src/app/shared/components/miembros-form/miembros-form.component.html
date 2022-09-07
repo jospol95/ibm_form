@@ -125,57 +125,19 @@
 <!--  </mat-list>-->
 <!--</mat-card>-->
 
-<mat-tab-group>
-  <mat-tab label="Personal">
+<mat-tab-group mat-stretch-tabs [selectedIndex]="currentTabIndex" #matgroup>
+  <mat-tab label="Personal" [disabled]="!isPersonalInfoGood">
     <!--    <mat-card>-->
     <div class="div-tab">
-      <div class="div-card">
-        <mat-form-field
-          [floatLabel]="'always'"
-          class="form-custom-field" appearance="standard">
-          <mat-label>Nombre *</mat-label>
-          <input
-            [(ngModel)]="Miembro.Nombre"
-            [readonly]="isReadOnly"
-            matInput>
-        </mat-form-field>
+      <app-personal-info-tab [(miembro)]="miembroCommand" >
 
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Apellidos *</mat-label>
-          <input
-            [(ngModel)]="Miembro.Apellido"
-            [readonly]="isReadOnly"
-            matInput>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Genero *</mat-label>
-          <mat-select [(value)]="Miembro.Genero">
-            <mat-option value="M">M</mat-option>
-            <mat-option value="F">F</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Estado civil</mat-label>
-          <mat-select [(value)]="Miembro.EstadoCivil">
-            <mat-option value="Casado">Casado</mat-option>
-            <mat-option value="Soltero">Soltero</mat-option>
-            <mat-option value="Viudo">Viudo</mat-option>
-            <mat-option value="Divorciado">Divorciado</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Fecha nacimiento *</mat-label>
-          <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaNacimiento" matInput [matDatepicker]="picker">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-
+      </app-personal-info-tab>
       <div fxLayout="row" fxLayoutAlign="end end">
-        <button mat-raised-button color="primary" class="button-stepper">
+        <button mat-raised-button color="primary"
+                class="button-stepper"
+                [disabled]="!isPersonalInfoGood"
+                (click)='navigateToNext()'
+        >
           Siguiente
         </button>
       </div>
@@ -183,85 +145,37 @@
     <!--    </mat-card>-->
 
   </mat-tab>
-  <mat-tab label="Miembro">
+  <mat-tab label="Miembro" [disabled]="!isMiembroInfoGood">
     <div class="div-tab">
-      <div class="div-card">
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Ministerio al que asiste</mat-label>
-          <mat-select [(value)]="Miembro.Genero">
-            <mat-option value="M">La Red</mat-option>
-            <mat-option value="F">Preju</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Ministerio en el que sirve</mat-label>
-          <mat-select [(value)]="Miembro.Genero">
-            <mat-option value="M">Audiovisual</mat-option>
-            <mat-option value="F">Estrategia</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Fecha bautismo</mat-label>
-          <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaBautismo" matInput [matDatepicker]="picker2">
-          <!--          <mat-hint>MM/DD/YYYY</mat-hint>-->
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Fecha conversion</mat-label>
-          <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaBautismo" matInput [matDatepicker]="picker2">
-          <!--          <mat-hint>MM/DD/YYYY</mat-hint>-->
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Fecha de primera visita</mat-label>
-          <input [readonly]="isReadOnly" [(ngModel)]="Miembro.FechaBautismo" matInput [matDatepicker]="picker2">
-          <!--          <mat-hint>MM/DD/YYYY</mat-hint>-->
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-      </div>
+      <app-miembro-info-tab [(miembro)]="miembroCommand">
+
+      </app-miembro-info-tab>
       <div fxLayout="row" fxLayoutAlign="space-between end">
-        <button mat-raised-button class="button-stepper">
+        <button mat-raised-button
+                class="button-stepper"
+                (click)='navigateToPrevious()'>
           Anterior
         </button>
-        <button mat-raised-button color="primary" class="button-stepper">
+        <button mat-raised-button color="primary"
+                class="button-stepper"
+                [disabled]="!isPersonalInfoGood"
+                (click)='navigateToNext()'>
           Siguiente
         </button>
       </div>
     </div>
 
   </mat-tab>
-  <mat-tab label="Contacto">
+  <mat-tab label="Contacto" [disabled]="!isContactoInfoGood">
     <div class="div-tab">
-      <div class="div-card">
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Correo *</mat-label>
-          <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Direccion">
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Direccion</mat-label>
-          <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Direccion">
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Departamento *</mat-label>
-          <mat-select [(value)]="Miembro.Genero">
-            <mat-option value="M">San Salvador</mat-option>
-            <mat-option value="F">Zacatecoluca</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Telefono 1 *</mat-label>
-          <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Telefono1">
-        </mat-form-field>
-        <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
-          <mat-label>Telefono 2</mat-label>
-          <input [readonly]="isReadOnly" matInput [(ngModel)]="Miembro.Telefono2">
-        </mat-form-field>
-      </div>
+      <app-contact-info-tab [(miembro)]="miembroCommand">
+
+      </app-contact-info-tab>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <button mat-raised-button color="primary" class="button-stepper">
+        <button mat-raised-button color="primary"
+                class="button-stepper"
+                [disabled]="!isContactoInfoGood"
+                (click)="submitForm()">
           Finalizar
         </button>
       </div>

@@ -1,0 +1,25 @@
+<div class="div-card">
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Correo *</mat-label>
+    <input [readonly]="isReadOnly" matInput [(ngModel)]="miembro.Email">
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Direccion</mat-label>
+    <input [readonly]="isReadOnly" matInput [(ngModel)]="miembro.Direccion">
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Departamento *</mat-label>
+    <mat-select [(value)]="miembro.DepartamentoId">
+      <mat-option value=1>San Salvador</mat-option>
+      <mat-option value=2>Zacatecoluca</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Telefono 1 *</mat-label>
+    <input [readonly]="isReadOnly" matInput [(ngModel)]="miembro.Telefono1">
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Telefono 2</mat-label>
+    <input [readonly]="isReadOnly" matInput [(ngModel)]="miembro.Telefono2">
+  </mat-form-field>
+</div>

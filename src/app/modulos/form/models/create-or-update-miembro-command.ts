@@ -15,6 +15,8 @@ export class CreateOrUpdateMiembroCommand {
   public Direccion: string;
   public Genero: string;
   public EstadoCivil: string;
-
+  public MinisterioSirveId: number;
+  public MinisterioMiembroId: number;
+  public DepartamentoId: number;
 
 }

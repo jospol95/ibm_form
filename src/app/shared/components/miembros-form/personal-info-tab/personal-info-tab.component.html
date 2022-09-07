@@ -1,0 +1,45 @@
+<div class="div-card">
+  <mat-form-field
+    [floatLabel]="'always'"
+    class="form-custom-field" appearance="standard">
+    <mat-label>Nombre *</mat-label>
+    <input
+      [(ngModel)]="miembro.Nombre"
+      [readonly]="isReadOnly"
+      matInput>
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Apellidos *</mat-label>
+    <input
+      [(ngModel)]="miembro.Apellido"
+      [readonly]="isReadOnly"
+      matInput>
+  </mat-form-field>
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <!--          TODO: radio button work https://material.angular.io/guide/creating-a-custom-form-field-control-->
+    <mat-label>Genero *</mat-label>
+    <mat-select [(value)]="miembro.Genero">
+      <mat-option value="M">M</mat-option>
+      <mat-option value="F">F</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Estado civil</mat-label>
+    <mat-select [(value)]="miembro.EstadoCivil">
+      <mat-option value="Casado">Casado</mat-option>
+      <mat-option value="Soltero">Soltero</mat-option>
+      <mat-option value="Viudo">Viudo</mat-option>
+      <mat-option value="Divorciado">Divorciado</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'always'" class="form-custom-field" appearance="standard">
+    <mat-label>Fecha nacimiento *</mat-label>
+    <input [readonly]="isReadOnly" [(ngModel)]="miembro.FechaNacimiento" matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
