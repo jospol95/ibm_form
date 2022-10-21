@@ -40,6 +40,10 @@ export class FormPageComponent implements OnInit {
   }
 
   public addMiembroConfirmed(){
+    this.Model.DepartamentoId = 1;
+    this.Model.MinisterioMiembroId = 1;
+    this.Model.MinisterioSirveId = 1;
+
     this._messageBoxService.showLoading();
     this.Model.FechaConversion = this.Model.FechaNacimiento;
     this.Model.FechaPrimeraVezCongregado = this.Model.FechaNacimiento;

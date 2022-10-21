@@ -6,7 +6,6 @@ import {RouterModule} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {CommonModule} from "@angular/common";
 import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
-import {MiembrosFormComponent} from "./miembros-form/miembros-form.component";
 import {MatListModule} from "@angular/material/list";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
@@ -15,25 +14,33 @@ import {MatCardModule} from "@angular/material/card";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTabsModule} from "@angular/material/tabs";
+import {
+  ContactInfoTabComponent,
+  MiembroInfoTabComponent,
+  MiembrosFormComponent,
+  PersonalInfoTabComponent
+} from "./miembros-form";
 
 @NgModule({
-  imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    RouterModule,
-    MatIconModule,
-    CommonModule,
-    FlexModule,
-    FlexLayoutModule,
-    MatListModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-  ],
+    imports: [
+        MatToolbarModule,
+        MatButtonModule,
+        RouterModule,
+        MatIconModule,
+        CommonModule,
+        FlexModule,
+        FlexLayoutModule,
+        MatListModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatInputModule,
+        MatCardModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatTabsModule,
+    ],
   exports: [
     NavMenuComponent,
     MiembrosFormComponent
@@ -41,6 +48,9 @@ import {MatSelectModule} from "@angular/material/select";
   declarations: [
     NavMenuComponent,
     MiembrosFormComponent,
+    PersonalInfoTabComponent,
+    MiembroInfoTabComponent,
+    ContactInfoTabComponent,
   ]
 })
 
